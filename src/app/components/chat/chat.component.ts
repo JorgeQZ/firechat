@@ -8,7 +8,9 @@ import { ChatService } from "../../providers/chat.service";
 export class ChatComponent {
   mensaje: string = "";
   constructor(public _cs: ChatService) {
-    this._cs.cargarMensajes();
+    this._cs
+      .cargarMensajes()
+      .subscribe((mensajes: any[]) => console.log(mensajes));
   }
 
   enviarMensaje() {
